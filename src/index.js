@@ -1,22 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
+import offers from "./mocks/offers";
 
 const Settings = {
-  RENTAL_COUNT: 312,
-  TOP_PLACES_NAME: [
-    `Beautiful & luxurious apartment at great location`,
-    `Wood and stone place`,
-    `Canal View Prinsengracht`,
-    `Nice, cozy, warm big bed apartment`,
-    `Wood and stone place`
-  ]
+  RENTAL_COUNT: 312
 };
 
 ReactDOM.render(
     <App
       rentalCount={Settings.RENTAL_COUNT}
-      topPlacesName={ Settings.TOP_PLACES_NAME}
+      offers={offers}
     />,
     document.querySelector(`#root`)
 );

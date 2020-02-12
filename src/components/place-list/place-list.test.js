@@ -1,12 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main.jsx";
+import PlaceList from "./place-list";
 
-it(`<Main /> should render offers`, () => {
-
-  const emptyFunc = () => {};
-  const rentalCount = 312;
-  const offers = [
+const mock = {
+  offers: [
     {
       id: 1,
       title: `Beautiful & luxurious apartment at great location`,
@@ -27,15 +24,14 @@ it(`<Main /> should render offers`, () => {
       priceText: `night`,
       rating: 80
     },
-  ];
+  ]
+};
 
+it(`Place-list correctly renders`, () => {
+  const {offers} = mock;
   const tree = renderer
-    .create(<Main
+    .create(<PlaceList
       offers={offers}
-      rentalCount={rentalCount}
-      onMainButtonClick={emptyFunc}
-    />)
-    .toJSON();
-
+    />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -5,17 +5,17 @@ import PropTypes from "prop-types";
 const onMainButtonClick = () => {};
 
 const App = (props) => {
-  const {rentalCount, topPlacesName} = props;
+  const {rentalCount, offers} = props;
   return <Main
     rentalCount={rentalCount}
-    topPlacesName={topPlacesName}
+    offers={offers}
     onMainButtonClick={onMainButtonClick}
   />;
 };
 
 App.propTypes = {
   rentalCount: PropTypes.number.isRequired,
-  topPlacesName: PropTypes.arrayOf(PropTypes.string.isRequired),
+  offers: PropTypes.array.isRequired,
   onMainButtonClick: PropTypes.func
 };
 
