@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Map from "../map/map.jsx";
 import PlaceList from "../place-list/place-list.jsx";
 
 const Main = (props) => {
-  const {rentalCount, offers, onMainButtonClick} = props;
+  const {rentalCount, offers, onMainButtonClick, city, zoom} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -103,7 +104,7 @@ const Main = (props) => {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map offers={offers} city={city} zoom={zoom} />
             </div>
           </div>
         </div>
@@ -123,9 +124,11 @@ Main.propTypes = {
         imgSrc: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         priceText: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired
+        rating: PropTypes.number.isRequired,
       })
   ).isRequired,
+  city: PropTypes.arrayOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired,
   onMainButtonClick: PropTypes.func
 };
 

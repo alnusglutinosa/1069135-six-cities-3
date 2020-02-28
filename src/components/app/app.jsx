@@ -11,7 +11,7 @@ class App extends PureComponent {
 
   _renderApp() {
     const onMainButtonClick = () => {};
-    const {rentalCount, offers} = this.props;
+    const {rentalCount, offers, city, zoom} = this.props;
 
     if (offers) {
       return (
@@ -19,6 +19,8 @@ class App extends PureComponent {
           rentalCount={rentalCount}
           offers={offers}
           onMainButtonClick={onMainButtonClick}
+          city={city}
+          zoom={zoom}
         />
       );
     }
@@ -45,7 +47,9 @@ class App extends PureComponent {
 App.propTypes = {
   rentalCount: PropTypes.number.isRequired,
   offers: PropTypes.array.isRequired,
-  onMainButtonClick: PropTypes.func
+  onMainButtonClick: PropTypes.func,
+  city: PropTypes.arrayOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired
 };
 
 export default App;
