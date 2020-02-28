@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "./app";
+import Map from "./map";
 
-it(`App correctly renders`, () => {
-  const offers = [
+const mock = {
+  places: [
     {
       id: 1,
       title: `Beautiful & luxurious apartment at great location`,
@@ -24,10 +24,16 @@ it(`App correctly renders`, () => {
       price: 80,
       priceText: `night`,
       rating: 80,
-      coordinates: [52.3909553943508, 4.85309666406198]
+      coordinates: [52.369553943508, 4.85309666406198]
     },
-  ];
+  ]
+};
 
-  const tree = renderer.create(<App rentalCount={312} offers={offers} city={[52.38333, 4.9]} zoom={12} />).toJSON();
+it(`Map correctly renders`, () => {
+  const {places} = mock;
+  const tree = renderer
+    .create(<Map
+      places={places} city={[52.38333, 4.9]} zoom={12}
+    />).toJSON();
   expect(tree).toMatchSnapshot();
 });

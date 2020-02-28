@@ -18,7 +18,8 @@ it(`Should place name link be pressed`, () => {
       imgSrc: `img/apartment-01.jpg`,
       price: 120,
       priceText: `night`,
-      rating: 93
+      rating: 93,
+      coordinates: [52.3909553943508, 4.85309666406198]
     },
     {
       id: 2,
@@ -28,7 +29,8 @@ it(`Should place name link be pressed`, () => {
       imgSrc: `img/room.jpg`,
       price: 80,
       priceText: `night`,
-      rating: 80
+      rating: 80,
+      coordinates: [52.3909553943508, 4.85309666406198]
     },
   ];
 
@@ -36,6 +38,8 @@ it(`Should place name link be pressed`, () => {
       <Main
         rentalCount={312}
         offers={offers}
+        city={[52.38333, 4.9]}
+        zoom={12}
         onMainButtonClick={onMainButtonClick}
       />
   );
